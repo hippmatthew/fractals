@@ -2,6 +2,8 @@
 
 > Made with [__Groot Engine__](https://github.com/hippmatthew/groot-engine)
 
+![fractals](./fractals.png)
+
 ### Build Instructions
 
 1. clone this repository and navigate to the repository's root folder
