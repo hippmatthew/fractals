@@ -36,7 +36,7 @@ vec2 complex_div(vec2 n, vec2 d) {
 
 void main() {
   const ivec2 index = ivec2(gl_GlobalInvocationID.xy);
-  const vec2 unit_coords = 2 * vec2(index) / GLOBAL_SIZE - vec2(1.0);
+  const vec2 unit_coords = 2 * vec2(index) / float(GLOBAL_SIZE) - vec2(1.0);
   vec2 z = SQUARE_BOUNDS * unit_coords;
 
   int iter = 0;
@@ -46,8 +46,9 @@ void main() {
     if (dot(dz, dz) < EPSILON) break;
   }
 
-  float hue = float(iter) / float(MAX_ITERATIONS);
-  float value = (1 - float(iter) / float(MAX_ITERATIONS)) * smoothstep(1.0, 0.9, length(unit_coords));
+  const float lambda = float(iter) / float(MAX_ITERATIONS);
+  const float value = (1 - lambda) * smoothstep(1.0, 0.9, length(unit_coords));
+  float hue = lambda;
   for (int i = 0; i < 3; ++i) {
     if (length(z - ROOTS[i]) < EPSILON) break;
     hue += 0.40;

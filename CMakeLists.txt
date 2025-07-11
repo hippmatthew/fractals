@@ -14,6 +14,7 @@ set(SHADERS
   ${CMAKE_SOURCE_DIR}/shaders/quad.frag
   ${CMAKE_SOURCE_DIR}/shaders/mandelbrot.comp
   ${CMAKE_SOURCE_DIR}/shaders/newton.comp
+  ${CMAKE_SOURCE_DIR}/shaders/julia.comp
 )
 
 foreach(SHADER ${SHADERS})
